@@ -1,4 +1,4 @@
-﻿# Excel Match
+# Excel Match
 
 MVP aplikasi web statis untuk membandingkan dua file Excel langsung di browser. Aplikasi ini tidak memakai database dan tidak mengunggah isi file ke server.
 
@@ -8,8 +8,10 @@ Target repository: https://github.com/slamets24/excel-macth.git
 
 - Upload dua file `.xlsx`, `.xls`, atau `.csv`.
 - Pilih sheet dari masing-masing file.
-- Pilih kolom kunci seperti SKU, barcode, kode barang, atau ID.
-- Tampilkan hanya data berbeda: Baru, Hilang, dan Berubah.
+- Baca otomatis kolom mitra dari header `NAMA TOKO` atau `NAMA MITRA`.
+- Baca otomatis warna dari header warna dan size dari baris `XS`, `S`, `M`, `L`, `XL`, `XXL`, `XXXL`.
+- Tampilkan hanya data mitra + warna + size yang qty-nya berbeda.
+- Lihat qty File A, qty File B, dan selisihnya.
 - Filter, cari hasil diff, dan export hasil ke Excel.
 
 ## Stack

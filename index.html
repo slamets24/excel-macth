@@ -1,26 +1,112 @@
-﻿<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Excel Match</title><script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script><style>
-:root{--bg:#f6f7fb;--panel:#fff;--ink:#111827;--muted:#64748b;--line:#dbe2ea;--blue:#2563eb;--green:#047857;--red:#b91c1c;--amber:#b45309;--r:8px}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}.wrap{width:min(1200px,calc(100% - 32px));margin:0 auto}.top{background:#fff;border-bottom:1px solid var(--line)}.hero{display:flex;justify-content:space-between;gap:24px;align-items:flex-end;padding:32px 0}.privacy{display:inline-flex;border:1px solid #bfdbfe;background:#eff6ff;color:#1e40af;border-radius:var(--r);padding:8px 10px;font-size:13px;font-weight:800;margin-bottom:16px}h1{margin:0;font-size:clamp(34px,5vw,58px);line-height:1;letter-spacing:0}.sub{max-width:690px;margin:16px 0 0;color:var(--muted);font-size:16px;line-height:1.7}.actions{display:flex;gap:10px;flex-wrap:wrap}.btn{height:42px;display:inline-flex;align-items:center;justify-content:center;border:1px solid transparent;border-radius:var(--r);padding:0 14px;font-size:14px;font-weight:800;cursor:pointer}.btn:disabled{opacity:.55;cursor:not-allowed}.primary{background:var(--blue);color:#fff}.dark{background:#111827;color:#fff}.light{background:#fff;border-color:#cbd5e1;color:#334155}.content{padding:24px 0 40px}.alert{display:none;margin-bottom:16px;border:1px solid #fecaca;background:#fef2f2;color:var(--red);border-radius:var(--r);padding:12px 14px;font-size:14px;font-weight:800}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);box-shadow:0 1px 2px rgba(15,23,42,.05)}.upload{padding:16px}.head{display:flex;justify-content:space-between;gap:16px}.title{margin:0;font-size:15px;font-weight:850}.desc,.hint{margin:4px 0 0;color:var(--muted);font-size:13px;line-height:1.6}.drop{margin-top:16px;min-height:145px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;border:1px dashed #cbd5e1;background:#f8fafc;border-radius:var(--r);text-align:center;padding:24px;cursor:pointer}.drop:hover{border-color:#93c5fd;background:#eff6ff}.drop input{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}.summary{display:none;margin-top:14px;border:1px solid var(--line);border-radius:var(--r);padding:12px}.fname{margin:0 0 12px;font-size:14px;font-weight:850;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}.metric{background:#f8fafc;border-radius:var(--r);padding:9px 10px}.metric label{display:block;color:var(--muted);font-size:11px;font-weight:800}.metric strong{display:block;margin-top:4px;font-size:18px}.label{display:block;color:#475569;font-size:12px;font-weight:850;text-transform:uppercase;letter-spacing:0;margin-bottom:6px}select,input[type=search]{width:100%;height:42px;border:1px solid #cbd5e1;border-radius:var(--r);background:#fff;color:var(--ink);padding:0 12px;font-size:14px}.controls{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:16px;margin-top:16px}.box{padding:16px}.keyrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:end}.count{font-size:34px;margin:8px 0 0;font-weight:850}.cards{display:none;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:20px}.card{border-radius:var(--r);border:1px solid var(--line);background:#fff;padding:14px}.card label{display:block;color:var(--muted);font-size:13px;font-weight:800}.card strong{display:block;margin-top:8px;font-size:30px}.g{background:#ecfdf5;border-color:#bbf7d0;color:var(--green)}.r{background:#fef2f2;border-color:#fecaca;color:var(--red)}.a{background:#fffbeb;border-color:#fde68a;color:var(--amber)}.empty{margin-top:20px;padding:44px 16px;text-align:center}.empty h2{margin:12px 0 0}.empty p{max-width:560px;margin:8px auto 0;color:var(--muted);line-height:1.7;font-size:14px}.warn{display:none;margin-top:14px;border:1px solid #fde68a;background:#fffbeb;color:#92400e;border-radius:var(--r);padding:12px 14px;font-size:13px}.result{display:none;margin-top:16px;overflow:hidden}.rhead{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px;border-bottom:1px solid var(--line)}.rhead h2{margin:0}.tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.search{width:260px}.filters{display:flex;gap:8px;padding:12px;border-bottom:1px solid var(--line);overflow-x:auto}.filter{background:#f1f5f9;color:#334155;border:0;border-radius:var(--r);padding:8px 11px;font-size:13px;font-weight:850;cursor:pointer}.filter.active{background:#111827;color:#fff}.tablewrap{max-height:660px;overflow:auto}table{width:100%;min-width:900px;border-collapse:separate;border-spacing:0;font-size:13px}th{position:sticky;top:0;z-index:2;text-align:left;background:#f1f5f9;color:#475569;border-bottom:1px solid var(--line);padding:11px 10px;font-size:11px;text-transform:uppercase;white-space:nowrap}td{border-bottom:1px solid var(--line);padding:10px;vertical-align:top}.row-added{background:rgba(236,253,245,.72)}.row-removed{background:rgba(254,242,242,.72)}.row-changed{background:rgba(255,251,235,.72)}.badge{display:inline-flex;border-radius:var(--r);padding:5px 8px;font-size:11px;font-weight:850}.badge-added{background:#d1fae5;color:var(--green)}.badge-removed{background:#fee2e2;color:var(--red)}.badge-changed{background:#fef3c7;color:var(--amber)}.key{font-weight:850}.pair{display:grid;gap:4px}.line{display:grid;grid-template-columns:24px minmax(0,1fr);gap:6px}.line b{color:#94a3b8;font-size:11px}.line span{word-break:break-word}@media(max-width:880px){.hero,.rhead{align-items:stretch;flex-direction:column}.grid,.controls,.cards{grid-template-columns:1fr}.keyrow{grid-template-columns:1fr}.search{width:100%}.tools{width:100%}.tools .btn{flex:1}}
-</style></head><body><header class="top"><div class="wrap hero"><div><div class="privacy">OK File diproses lokal di browser, tanpa database</div><h1>Excel Match</h1><p class="sub">Upload dua file Excel, pilih sheet dan kolom kunci, lalu lihat hanya data yang berbeda: baru, hilang, atau berubah.</p></div><div class="actions"><button class="btn light" id="resetBtn">Reset</button><button class="btn primary" id="compareTopBtn" disabled>Bandingkan</button></div></div></header><main class="wrap content"><div class="alert" id="errorBox"></div><section class="grid"><article class="panel upload"><div class="head"><div><p class="title">File A</p><p class="desc">Data referensi atau data lama</p></div><b>Sheet</b></div><label class="drop"><strong id="leftUploadText">Klik untuk upload Excel</strong><span>.xlsx, .xls, atau .csv sampai 25 MB</span><input id="leftFile" type="file" accept=".xlsx,.xls,.csv"></label><div class="summary" id="leftSummary"></div></article><article class="panel upload"><div class="head"><div><p class="title">File B</p><p class="desc">Data pembanding atau data baru</p></div><b>Sheet</b></div><label class="drop"><strong id="rightUploadText">Klik untuk upload Excel</strong><span>.xlsx, .xls, atau .csv sampai 25 MB</span><input id="rightFile" type="file" accept=".xlsx,.xls,.csv"></label><div class="summary" id="rightSummary"></div></article></section><section class="controls"><div class="panel box"><label class="label" for="keyColumn">Kolom kunci</label><div class="keyrow"><select id="keyColumn" disabled><option value="">Upload dua file untuk memilih kolom</option></select><button class="btn dark" id="compareBtn" disabled>Compare</button></div><p class="hint">Pilih kolom unik yang ada di kedua file, misalnya SKU, barcode, kode barang, atau ID.</p></div><div class="panel box"><p class="title">Kolom sama</p><div class="count" id="sharedCount">0</div><p class="hint">Kolom dapat dibandingkan antar file.</p></div></section><section class="panel empty" id="emptyState"><b>Table</b><h2>Belum ada hasil compare</h2><p>Upload dua file, pilih kolom kunci, lalu klik Bandingkan. Tabel hanya akan menampilkan data yang berbeda.</p></section><section class="cards" id="summaryGrid"></section><div class="warn" id="warningsBox"></div><section class="panel result" id="resultBox"><div class="rhead"><div><h2>Hasil perbedaan</h2><p class="desc" id="resultCount">Menampilkan 0 baris</p></div><div class="tools"><div class="search"><input id="searchInput" type="search" placeholder="Cari key atau nilai"></div><button class="btn light" id="exportBtn">Export</button></div></div><div class="filters" id="filters"></div><div class="tablewrap"><table id="diffTable"></table></div></section></main><script>
-const MAX=25*1024*1024,exts=[".xlsx",".xls",".csv"],state={left:null,right:null,keyColumn:"",result:null,filter:"all",search:""};
-const $=id=>document.getElementById(id),els={err:$("errorBox"),lf:$("leftFile"),rf:$("rightFile"),ls:$("leftSummary"),rs:$("rightSummary"),lut:$("leftUploadText"),rut:$("rightUploadText"),key:$("keyColumn"),cmp:$("compareBtn"),cmpTop:$("compareTopBtn"),reset:$("resetBtn"),shared:$("sharedCount"),empty:$("emptyState"),cards:$("summaryGrid"),warn:$("warningsBox"),result:$("resultBox"),filters:$("filters"),search:$("searchInput"),export:$("exportBtn"),rcount:$("resultCount"),table:$("diffTable")};
-const labels={all:"Semua",changed:"Berubah",added:"Baru",removed:"Hilang",unchanged:"Sama"};
-els.lf.addEventListener("change",e=>handleFile("left",e));els.rf.addEventListener("change",e=>handleFile("right",e));els.key.addEventListener("change",()=>{state.keyColumn=els.key.value;state.result=null;renderResult();renderControls()});els.cmp.addEventListener("click",runCompare);els.cmpTop.addEventListener("click",runCompare);els.reset.addEventListener("click",resetAll);els.search.addEventListener("input",()=>{state.search=els.search.value;renderTable()});els.export.addEventListener("click",exportResult);renderFilters();
-async function handleFile(side,e){const file=e.target.files&&e.target.files[0];e.target.value="";if(!file)return;clearError();const t=side==="left"?els.lut:els.rut;t.textContent="Membaca file...";try{const parsed=await parseWorkbook(file);state[side]=parsed;state.result=null;state.search="";els.search.value="";state.keyColumn=suggestKey(getSharedColumns());renderWorkbook(side);renderControls();renderResult()}catch(err){showError(err.message||"File gagal dibaca.")}finally{t.textContent="Klik untuk upload Excel"}}
-async function parseWorkbook(file){if(!window.XLSX)throw new Error("Library Excel belum termuat. Cek koneksi internet lalu refresh halaman.");const ext=file.name.slice(file.name.lastIndexOf(".")).toLowerCase();if(!exts.includes(ext))throw new Error("Format file tidak didukung. Gunakan .xlsx, .xls, atau .csv.");if(file.size>MAX)throw new Error("Ukuran file maksimal 25 MB.");const buf=await file.arrayBuffer();const wb=XLSX.read(buf,{type:"array",cellDates:true,raw:false});const sheets=wb.SheetNames.map(name=>{const ws=wb.Sheets[name];const matrix=XLSX.utils.sheet_to_json(ws,{header:1,defval:"",raw:false});return parseMatrix(name,matrix)}).filter(s=>s.columns.length);if(!sheets.length)throw new Error("Workbook tidak memiliki sheet dengan header yang bisa dibaca.");return{fileName:file.name,sheets,selectedSheetName:sheets[0].sheetName}}
-function parseMatrix(sheetName,matrix){const hi=matrix.findIndex(row=>row.some(cell=>normHeader(cell).length));if(hi<0)return{sheetName,columns:[],rows:[],rowCount:0};const columns=uniqueHeaders(matrix[hi]);const rows=matrix.slice(hi+1).map((row,i)=>{const rec={__rowNumber:hi+i+2};columns.forEach((c,ci)=>rec[c]=displayVal(row[ci]));return rec}).filter(row=>columns.some(c=>normVal(row[c]).length));return{sheetName,columns,rows,rowCount:rows.length}}
-function uniqueHeaders(row){const seen=new Map;return row.map((cell,i)=>{const base=normHeader(cell)||`Kolom ${i+1}`,n=seen.get(base)||0;seen.set(base,n+1);return n?`${base} (${n+1})`:base})}
-function normHeader(v){return String(v??"").trim().replace(/\s+/g," ")}function normVal(v){if(v==null)return"";if(v instanceof Date)return v.toISOString().slice(0,10);return String(v).trim().replace(/\s+/g," ")}function displayVal(v){if(v==null)return"";if(v instanceof Date)return v;return String(v).trim()}
-function selected(w){return w?w.sheets.find(s=>s.sheetName===w.selectedSheetName)||null:null}function getSharedColumns(){const l=selected(state.left),r=selected(state.right);if(!l||!r)return[];const rc=new Set(r.columns);return l.columns.filter(c=>rc.has(c))}function suggestKey(cols){const p=["sku","barcode","kode","kode barang","id","product id"],m=new Map(cols.map(c=>[c.toLowerCase(),c]));for(const x of p)if(m.has(x))return m.get(x);return cols[0]||""}
-function renderWorkbook(side){const w=state[side],box=side==="left"?els.ls:els.rs,s=selected(w);if(!w||!s){box.style.display="none";box.innerHTML="";return}box.style.display="block";box.innerHTML=`<p class="fname" title="${esc(w.fileName)}">${esc(w.fileName)}</p><div class="metrics"><div class="metric"><label>Sheet</label><strong>${w.sheets.length}</strong></div><div class="metric"><label>Baris</label><strong>${num(s.rowCount)}</strong></div><div class="metric"><label>Kolom</label><strong>${num(s.columns.length)}</strong></div></div><label class="label">Sheet aktif</label><select>${w.sheets.map(sh=>`<option value="${esc(sh.sheetName)}" ${sh.sheetName===w.selectedSheetName?"selected":""}>${esc(sh.sheetName)}</option>`).join("")}</select>`;box.querySelector("select").addEventListener("change",e=>{w.selectedSheetName=e.target.value;state.result=null;state.keyColumn=suggestKey(getSharedColumns());renderWorkbook(side);renderControls();renderResult()})}
-function renderControls(){const shared=getSharedColumns();els.shared.textContent=num(shared.length);els.key.disabled=!shared.length;els.key.innerHTML=shared.length?shared.map(c=>`<option value="${esc(c)}" ${c===state.keyColumn?"selected":""}>${esc(c)}</option>`).join(""):`<option value="">Upload dua file untuk memilih kolom</option>`;const ok=!!(selected(state.left)&&selected(state.right)&&state.keyColumn);els.cmp.disabled=!ok;els.cmpTop.disabled=!ok}
-function runCompare(){const l=selected(state.left),r=selected(state.right),k=state.keyColumn;if(!l||!r||!k){showError("Upload dua file dan pilih kolom kunci terlebih dahulu.");return}clearError();state.result=compareSheets(l,r,k);state.filter="all";state.search="";els.search.value="";renderFilters();renderResult()}
-function compareSheets(left,right,key){const warnings=[],cols=[...new Set([...left.columns,...right.columns])],li=indexRows(left.rows,key),ri=indexRows(right.rows,key);warnIndex(warnings,"File A",li);warnIndex(warnings,"File B",ri);const rows=[],summary={totalA:left.rows.length,totalB:right.rows.length,added:0,removed:0,changed:0,unchanged:0,shown:0};new Set([...li.map.keys(),...ri.map.keys()]).forEach(k=>{const a=li.map.get(k)||[],b=ri.map.get(k)||[];if(a.length!==1||b.length!==1)return;const cells=buildCells(a[0],b[0],cols),status=cells.some(c=>c.changed)?"changed":"unchanged";summary[status]++;if(status!=="unchanged")rows.push({key:k,status,rowNumberA:a[0].__rowNumber,rowNumberB:b[0].__rowNumber,cells})});li.map.forEach((b,k)=>{if(ri.map.has(k)||b.length!==1)return;summary.removed++;rows.push({key:k,status:"removed",rowNumberA:b[0].__rowNumber,cells:buildCells(b[0],null,cols)})});ri.map.forEach((b,k)=>{if(li.map.has(k)||b.length!==1)return;summary.added++;rows.push({key:k,status:"added",rowNumberB:b[0].__rowNumber,cells:buildCells(null,b[0],cols)})});summary.shown=rows.length;const order={changed:0,added:1,removed:2,unchanged:3};rows.sort((a,b)=>order[a.status]-order[b.status]||a.key.localeCompare(b.key));return{columns:cols,rows,summary,warnings}}
-function indexRows(rows,key){const map=new Map;let emptyKeys=0;rows.forEach(row=>{const k=normVal(row[key]);if(!k){emptyKeys++;return}const b=map.get(k)||[];b.push(row);map.set(k,b)});const duplicateKeys=[...map.entries()].filter(([,b])=>b.length>1).map(([k])=>k);return{map,emptyKeys,duplicateKeys}}function warnIndex(w,label,x){if(x.emptyKeys)w.push(`${label}: ${x.emptyKeys} baris dilewati karena kolom kunci kosong.`);if(x.duplicateKeys.length)w.push(`${label}: ${x.duplicateKeys.length} key duplikat dilewati agar hasil tidak ambigu.`)}function buildCells(a,b,cols){return cols.map(c=>{const av=a?a[c]??"":"",bv=b?b[c]??"":"";return{column:c,leftValue:av,rightValue:bv,changed:normVal(av)!==normVal(bv)}})}
-function renderResult(){if(!state.result){els.empty.style.display="block";els.cards.style.display="none";els.warn.style.display="none";els.result.style.display="none";return}els.empty.style.display="none";els.cards.style.display="grid";els.result.style.display="block";const s=state.result.summary;els.cards.innerHTML=card("Data A",s.totalA,"")+card("Data B",s.totalB,"")+card("Baru",s.added,"g")+card("Hilang",s.removed,"r")+card("Berubah",s.changed,"a");if(state.result.warnings.length){els.warn.style.display="block";els.warn.innerHTML=state.result.warnings.map(esc).join("<br>")}else els.warn.style.display="none";renderTable()}function card(label,value,tone){return`<div class="card ${tone}"><label>${label}</label><strong>${num(value)}</strong></div>`}
-function renderFilters(){const fs=["all","changed","added","removed","unchanged"];els.filters.innerHTML=fs.map(f=>`<button type="button" class="filter ${state.filter===f?"active":""}" data-filter="${f}">${labels[f]}</button>`).join("");els.filters.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{state.filter=b.dataset.filter;renderFilters();renderTable()}))}
-function visibleRows(){if(!state.result)return[];const q=state.search.trim().toLowerCase();return state.result.rows.filter(row=>{const mf=state.filter==="all"||row.status===state.filter;const ms=!q||row.key.toLowerCase().includes(q)||row.cells.some(c=>`${c.column} ${fmt(c.leftValue)} ${fmt(c.rightValue)}`.toLowerCase().includes(q));return mf&&ms})}
-function renderTable(){if(!state.result)return;const rows=visibleRows();els.rcount.textContent=`Menampilkan ${num(rows.length)} dari ${num(state.result.rows.length)} baris berbeda.`;const head=`<thead><tr><th>Status</th><th>Key</th>${state.result.columns.map(c=>`<th>${esc(c)}</th>`).join("")}</tr></thead>`;const body=rows.length?`<tbody>${rows.map(renderRow).join("")}</tbody>`:`<tbody><tr><td colspan="${state.result.columns.length+2}" style="text-align:center;padding:36px;color:#64748b">Tidak ada data untuk filter ini.</td></tr></tbody>`;els.table.innerHTML=head+body}
-function renderRow(row){return`<tr class="row-${row.status}"><td><span class="badge badge-${row.status}">${labels[row.status]}</span></td><td class="key">${esc(row.key)}</td>${row.cells.map(renderCell).join("")}</tr>`}function renderCell(c){if(!c.changed)return`<td>${esc(fmt(c.leftValue))}</td>`;return`<td><div class="pair"><div class="line"><b>A</b><span>${esc(fmt(c.leftValue))}</span></div><div class="line"><b>B</b><span>${esc(fmt(c.rightValue))}</span></div></div></td>`}
-function exportResult(){if(!state.result||!state.result.rows.length)return;const out=[];state.result.rows.forEach(row=>row.cells.forEach(c=>{if(row.status==="changed"&&!c.changed)return;out.push({status:row.status,key:row.key,column:c.column,value_file_a:fmt(c.leftValue),value_file_b:fmt(c.rightValue),row_file_a:row.rowNumberA||"",row_file_b:row.rowNumberB||""})}));const ws=XLSX.utils.json_to_sheet(out),wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,"Diff");XLSX.writeFile(wb,`excel-match-diff-${new Date().toISOString().slice(0,10)}.xlsx`)}
-function resetAll(){state.left=null;state.right=null;state.keyColumn="";state.result=null;state.filter="all";state.search="";els.lf.value="";els.rf.value="";els.search.value="";els.ls.style.display="none";els.rs.style.display="none";els.ls.innerHTML="";els.rs.innerHTML="";clearError();renderControls();renderFilters();renderResult()}function showError(m){els.err.textContent=m;els.err.style.display="block"}function clearError(){els.err.textContent="";els.err.style.display="none"}function num(v){return Number(v||0).toLocaleString("id-ID")}function fmt(v){if(v instanceof Date)return v.toISOString().slice(0,10);if(v===null||v===undefined||v==="")return"-";return String(v)}function esc(v){return String(v??"").replace(/[&<>"]/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]))}
-</script></body></html>
+﻿<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Excel Match</title>
+  <meta name="description" content="Bandingkan mitra, warna, dan size dari dua file Excel.">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap hero">
+      <div>
+        <div class="privacy">File diproses lokal di browser, tanpa database</div>
+        <h1>Excel Match</h1>
+        <p class="subtitle">Upload dua file Excel, lalu lihat mitra mana yang berbeda berdasarkan warna dan size.</p>
+      </div>
+      <div class="actions">
+        <button class="btn btn-light" id="resetBtn" type="button">Reset</button>
+        <button class="btn btn-primary" id="compareTopBtn" type="button" disabled>Bandingkan</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap content">
+    <div class="alert" id="errorBox"></div>
+
+    <section class="grid-two">
+      <article class="panel upload-panel">
+        <div class="panel-head">
+          <div>
+            <p class="panel-title">File A</p>
+            <p class="panel-desc">Data referensi atau data lama</p>
+          </div>
+          <strong>Sheet</strong>
+        </div>
+        <label class="dropzone">
+          <strong id="leftUploadText">Klik untuk upload Excel</strong>
+          <span>.xlsx, .xls, atau .csv sampai 25 MB</span>
+          <input id="leftFile" type="file" accept=".xlsx,.xls,.csv">
+        </label>
+        <div class="file-summary" id="leftSummary"></div>
+      </article>
+
+      <article class="panel upload-panel">
+        <div class="panel-head">
+          <div>
+            <p class="panel-title">File B</p>
+            <p class="panel-desc">Data pembanding atau data baru</p>
+          </div>
+          <strong>Sheet</strong>
+        </div>
+        <label class="dropzone">
+          <strong id="rightUploadText">Klik untuk upload Excel</strong>
+          <span>.xlsx, .xls, atau .csv sampai 25 MB</span>
+          <input id="rightFile" type="file" accept=".xlsx,.xls,.csv">
+        </label>
+        <div class="file-summary" id="rightSummary"></div>
+      </article>
+    </section>
+
+    <section class="controls-grid">
+      <div class="panel controls-main">
+        <label class="field-label" for="sheetMode">Mode compare</label>
+        <div class="key-row">
+          <select id="sheetMode">
+            <option value="mitraSize">Mitra + Warna + Size</option>
+          </select>
+          <button class="btn btn-dark" id="compareBtn" type="button" disabled>Compare</button>
+        </div>
+        <p class="hint">App membaca kolom mitra dari “NAMA TOKO”, warna dari header warna, dan size dari baris XS sampai XXXL.</p>
+      </div>
+      <div class="panel shared-box">
+        <p class="panel-title">Mitra sama</p>
+        <div class="shared-value" id="sharedCount">0</div>
+        <p class="hint">Mitra yang ada di kedua file.</p>
+      </div>
+    </section>
+
+    <section class="panel empty-state" id="emptyState">
+      <strong>Table</strong>
+      <h2>Belum ada hasil compare</h2>
+      <p>Upload dua file lalu klik Bandingkan. Tabel akan menampilkan nama mitra, warna, dan size yang berbeda.</p>
+    </section>
+
+    <section class="summary-grid" id="summaryGrid"></section>
+    <div class="warnings" id="warningsBox"></div>
+
+    <section class="panel result-box" id="resultBox">
+      <div class="result-head">
+        <div>
+          <h2>Hasil perbedaan</h2>
+          <p class="result-count" id="resultCount">Menampilkan 0 baris</p>
+        </div>
+        <div class="result-tools">
+          <div class="search-wrap">
+            <input id="searchInput" type="search" placeholder="Cari mitra, warna, atau size">
+          </div>
+          <button class="btn btn-light" id="exportBtn" type="button">Export</button>
+        </div>
+      </div>
+      <div class="filters" id="filters"></div>
+      <div class="table-wrap">
+        <table id="diffTable"></table>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
